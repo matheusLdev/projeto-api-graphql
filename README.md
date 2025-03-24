@@ -54,7 +54,7 @@ A API estará disponível em `http://localhost:3000`.
 
 ## Passo 5: Deploy
 
-O deploy do projeto foi disponibilizado na plataforma **Railway**. Acesse a API pelo link: `https://localhost:3000`
+O deploy do projeto foi disponibilizado na plataforma **Vercel**. Acesse a API pelo link: `https://projeto-api-graphql.vercel.app/`
 
 
 ## DockerHub

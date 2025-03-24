@@ -22,7 +22,7 @@ import { AuthModule } from './modules/auth/auth.module';
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/database/schema.gql'),
       playground: true,
-      path: '/',
+      path: '/graphql',
     }),
   ],
   providers: [SeedService],
