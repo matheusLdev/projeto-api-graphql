@@ -1,0 +1,89 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Users {
+  name: String!
+  email: String!
+  password: String!
+  role: String!
+}
+
+type OrderItem {
+  product: ID!
+  quantity: Float!
+}
+
+type Orders {
+  user: ID!
+  items: [OrderItem!]!
+  status: OrderStatus!
+  total: Float!
+  orderId: ID!
+}
+
+enum OrderStatus {
+  PENDING
+  COMPLETED
+  CANCELED
+}
+
+type Products {
+  name: String!
+  description: String!
+  price: Float!
+  stock: Float!
+}
+
+type EcommerceStats {
+  totalOrders: Float!
+  totalSales: Float!
+  totalProductsSold: Float!
+  avgOrderValue: Float!
+}
+
+type JwtToken {
+  access_token: String!
+}
+
+type Query {
+  getUsers: [Users!]!
+  orders: [Orders!]!
+  order(id: String!): Orders!
+  ecommerceStats(input: EcommerceStatsInput!): EcommerceStats!
+  products: [Products!]!
+}
+
+input EcommerceStatsInput {
+  secret: String!
+}
+
+type Mutation {
+  placeOrder(createOrderDto: CreateOrderDto!): Orders!
+  updateOrderStatus(id: String!, status: String!): Orders!
+  addProduct(name: String!, description: String!, price: Float!, stock: Float!): Products!
+  register(registerDto: RegisterDto!): JwtToken!
+  login(loginDto: LoginDto!): JwtToken!
+}
+
+input CreateOrderDto {
+  user: String!
+  items: [OrderItemInput!]!
+  total: Float!
+}
+
+input OrderItemInput {
+  product: String!
+  quantity: Float!
+}
+
+input RegisterDto {
+  email: String!
+  password: String!
+  name: String!
+}
+
+input LoginDto {
+  email: String!
+  password: String!
+}
